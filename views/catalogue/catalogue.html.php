@@ -2,10 +2,10 @@
 require(ROUTE_DIR.'views/inc/header.html.php');
 ?>
 
-</div>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top ">
-<img src="image/logo.png/" class="img-fluid mb-5" alt="Responsive image">   </div>
+
+<nav class="navbar navbar-expand-lg navbar-light  ">
+<img src="image/logo.png/" class="img-fluid mb-5 " alt="Responsive image">   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@ require(ROUTE_DIR.'views/inc/header.html.php');
           logement
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">se connecter</a>
+          <a class="dropdown-item" href="">se connecter</a>
           <a class="dropdown-item" href="#">s'inscrire</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -44,7 +44,7 @@ require(ROUTE_DIR.'views/inc/header.html.php');
          utilisateur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">se connecter</a>
+          <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=connexion'?>">se connecter</a>
           <a class="dropdown-item" href="#">s'inscrire</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -55,7 +55,6 @@ require(ROUTE_DIR.'views/inc/header.html.php');
   
 </nav>
 <img src="image/slide.png/" class="img-fluid  mt_" alt="Responsive image"> 
-<div class="bottom-left">Choisissez facilement le logement de vos rêve !</div>
   </div>
 
 <!------ Include the above in your HEAD tag ---------->
@@ -66,122 +65,44 @@ require(ROUTE_DIR.'views/inc/header.html.php');
     <!-- -----------------------------------------------------------CONTAINER -->
     <div class="container">
       <div class="row mt-4">
-        <div class="col-sm-4 mb-4 ">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://source.unsplash.com/1080x720/?product"
-              alt="Annonce 1"
-            />      
-
-
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <hr />
-              <span class="float-left btn btn-sm text-center disabled"
-                >Revervé il y a : 10m</span
-              >
-              <a href="#" class="btn btn-sm btn-outline-info float-right ml-3"><i class="fas fa-ellipsis-h"></i></a>
-              <a href="#" class="btn btn-sm btn-outline-danger float-right"
-                >Annuler</a
-              >
-            </div>
-          </div>
+        <div class="col-sm-5 mb-4 ml-5">
+        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
         </div>
-        <div class="col-sm-4 mb-4">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://source.unsplash.com/1080x720/?computer"
-              alt="Annonce 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <hr />
-              
-              <span class="float-left btn btn-sm text-center disabled"
-                >Revervé il y a : 49mn</span
-              >
-              <a href="#" class="btn btn-sm btn-outline-info float-right ml-3"><i class="fas fa-ellipsis-h"></i></a>
-              <a href="#" class="btn btn-sm btn-outline-danger float-right"
-                >Annuler</a
-              >
-            </div>
-          </div>
+        <div class="col-sm-5 mb-4 ml-5 ">
+        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+        </div> 
+      </div> 
+      <div class="row mt-4">
+        <div class="col-sm-5 mb-4 ml-5">
+        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
         </div>
-        <div class="col-sm-4 mb-4">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://source.unsplash.com/1080x720/?smart"
-              alt="Annonce 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <hr />
-              <span class="float-left btn btn-sm text-center disabled"
-                >Revervé il y a : 1h</span
-              >
-              <a href="#" class="btn btn-sm btn-outline-info float-right ml-3"><i class="fas fa-ellipsis-h"></i></a>
-              <a href="#" class="btn btn-sm btn-outline-danger float-right"
-                >Annuler</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 mb-4">
-          <div class="card" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://source.unsplash.com/1080x720/?house"
-              alt="Annonce 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <hr />
-              <span class="float-left btn btn-sm text-center disabled"
-                >Revervé il y a : 1j</span
-              >
-              <a href="#" class="btn btn-sm btn-outline-info float-right ml-3"><i class="fas fa-ellipsis-h"></i></a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 mb-4">
-
-        </div>
-       
-      </div>
-
-      <div class="row text-center">
-        <div class="col-sm-4 offset-sm-4">
-          <ul class="pagination pl-4">
-              <li class="page-item disabled">
-                <a class="page-link" href="#">&laquo;</a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">5</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">&raquo;</a>
-              </li>
-            </ul>
-        </div>
+        <div class="col-sm-5 mb-4 ml-5 ">
+        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+        </div> 
       </div> 
     </div>
+    <footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+    <img src="image/facebook.png/" class="img-fluid  ml" alt="Responsive image"> 
+    <img src="image/instagram.png/" class="img-fluid  ml-3" alt="Responsive image"> 
+    <img src="image/snapchat.png/" class="img-fluid  ml-3" alt="Responsive image"> 
+    <img src="image/twitter.png/" class="img-fluid  ml-3" alt="Responsive image"> 
+ 
+     
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
 
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  @2020 | Yombale sa deukouwaye | All Rights Reserved !!   
+  </div>
+  <!-- Copyright -->
+</footer>
   <?php
 require(ROUTE_DIR.'views/inc/header.html.php');
 ?>
