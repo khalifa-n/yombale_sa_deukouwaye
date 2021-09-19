@@ -17,9 +17,19 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 function connexion (string $login ,string $password):void{
 	$arrayError=[];
 }
-validation_login($login, "login" ,$arrayError);
+validation_login($login,"login",$arrayError);
 validation_password($password,"password",$arryError);
 if (form_valid($arrayError)) {
-	# code...
+	$utilisateur=find_user_by_login_password($login, $password);
+	if (count($utilisateur)==0) {
+		$arrayError['erreur']='login ou password incorrect';
+	}else {
+		$_SESSION['userConnect']=$user;
+		header("location:".WEB_ROUTE);
+	}
+}else {
+	$_SESSION['arrayError']=$arrayError;
+	header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	
+	exit();
 }
 ?>

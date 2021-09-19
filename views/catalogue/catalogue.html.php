@@ -13,21 +13,21 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 
     <!-- -----------------------------------------------------------CONTAINER -->
     <div class="container">
-      <div class="row mt-4">
-        <div class="col-sm-5 mb-4 ml-5">
-        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
-        </div>
-        <div class="col-sm-5 mb-4 ml-5 ">
-        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
-        </div> 
-      </div> 
-      <div class="row mt-4">
-        <div class="col-sm-5 mb-4 ml-5">
-        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
-        </div>
-        <div class="col-sm-5 mb-4 ml-5 ">
-        <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
-        </div> 
+        <div class="row mt-4">
+            <div class="col-sm-5 mb-4 ml-5">
+               <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+            </div>
+              <div class="col-sm-5 mb-4 ml-5 ">
+                  <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+              </div> 
+       </div> 
+        <div class="row mt-4">
+            <div class="col-sm-5 mb-4 ml-5">
+                 <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+            </div>
+              <div class="col-sm-5 mb-4 ml-5 ">
+                  <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+              </div> 
       </div> 
     </div>
    
