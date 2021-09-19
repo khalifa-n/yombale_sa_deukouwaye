@@ -1,17 +1,43 @@
-
+body{
+	overflow-x: hidden;
+}
  a{
 	color: #7D5939 !important;
 }
+.navbar{
+	background-color:#D3D0C9;
+	
+}
 .navbar-expand-lg{
-	background-color:#DAD8D0 ;
+	background-color:#D3D0C9;
 		
 } 
 .menu{
 	margin-left: 200px;
 }
 .footer{
-	background-color:#DAD8D0 ;	
+	background-color:#D3D0C9 ;
+	
 }
 .text-footer{
 	color: #7D5939 !important;	
 }
+.footer-social{
+	height: 50px;
+}
+.couleur_marron{
+	height:500px;
+}
+.card_body{
+	width: 500px;
+}
+
+.container_form{
+	height:300;	
+}
+.connexion{
+	margin-left: 250px;
+}
+ul {
+	list-style-type: none;
+	}   

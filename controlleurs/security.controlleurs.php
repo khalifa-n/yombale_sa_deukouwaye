@@ -12,4 +12,14 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 	    require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
 	}
 }
+
+
+function connexion (string $login ,string $password):void{
+	$arrayError=[];
+}
+validation_login($login, "login" ,$arrayError);
+validation_password($password,"password",$arryError);
+if (form_valid($arrayError)) {
+	# code...
+}
 ?>

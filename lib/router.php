@@ -5,10 +5,10 @@ if (isset($_REQUEST['controlleurs'])) {
     
 } elseif ($_REQUEST['controlleurs'] =='security') {
     require_once(ROUTE_DIR .'controlleurs/security.controlleurs.php');
+}
+
 }else {
     require_once(ROUTE_DIR .'controlleurs/gestionnaire.controlleurs.php');
 }
-}
-
 
 ?>
