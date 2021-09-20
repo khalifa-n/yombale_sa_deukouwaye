@@ -6,7 +6,8 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 		
 	}
 }else {
-	require(ROUTE_DIR.'views/catalogue/catalogue.html.php');	
+	require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+		
 }
 }
 ?>

@@ -1,6 +1,24 @@
 <?php
 require(ROUTE_DIR.'views/inc/header.html.php');
-require(ROUTE_DIR.'views/inc/menu.html.php');
+if (est_gestionnaire()) {
+  require(ROUTE_DIR.'views/inc/menu.gestionnaire.html.php');
+
+}
+elseif (est_proprietaire()) {
+  require(ROUTE_DIR.'views/inc/menu.proprietaire.html.php');
+
+}elseif (est_responsable_location()) {
+  require(ROUTE_DIR.'views/inc/menu.res.location.html.php');
+}elseif (est_responsable_financier()) {
+  require(ROUTE_DIR.'views/inc/menu.res.financier.html.php');
+ 
+}elseif (est_client()) {
+  require(ROUTE_DIR.'views/inc/menu.client.html.php');
+  
+}else {
+  require(ROUTE_DIR.'views/inc/menu.visiteur.html.php');
+ 
+}
 ?>
 
 <img src="image/slide.png/" class="img-fluid  mt_" alt="Responsive image"> 
@@ -18,17 +36,32 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
                <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
             </div>
               <div class="col-sm-5 mb-4 ml-5 ">
-                  <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+                  <img src="image/Groupe 2.png/" class="img-fluid  mt_" alt="Responsive image"> 
               </div> 
        </div> 
         <div class="row mt-4">
             <div class="col-sm-5 mb-4 ml-5">
+                 <img src="image/Groupe 3.png/" class="img-fluid  mt_" alt="Responsive image"> 
+            </div>
+              <div class="col-sm-5 mb-4 ml-5 ">
+                  <img src="image/Groupe 4.png/" class="img-fluid  mt_" alt="Responsive image"> 
+              </div> 
+      </div>
+      <div class="row mt-4">
+            <div class="col-sm-5 mb-4 ml-5">
                  <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
             </div>
               <div class="col-sm-5 mb-4 ml-5 ">
-                  <img src="image/img1.png/" class="img-fluid  mt_" alt="Responsive image"> 
+                  <img src="image/Groupe 2.png/" class="img-fluid  mt_" alt="Responsive image"> 
               </div> 
-      </div> 
+      </div>  <div class="row mt-4">
+            <div class="col-sm-5 mb-4 ml-5">
+                 <img src="image/Groupe 3.png/" class="img-fluid  mt_" alt="Responsive image"> 
+            </div>
+              <div class="col-sm-5 mb-4 ml-5 ">
+                  <img src="image/Groupe 4.png/" class="img-fluid  mt_" alt="Responsive image"> 
+              </div> 
+      </div>  
     </div>
    
  
