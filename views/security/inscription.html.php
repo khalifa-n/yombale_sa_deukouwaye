@@ -14,7 +14,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
               <div class="container_form"style="background-color:white">
                 
              
-              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
+              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto" enctype="multipart/form-data">
               <input type="hidden" name="controlleurs" value="security">  
 		 <input type="hidden" name="action" value="inscription">  
                 <p class=" inscription"> </p>
@@ -26,6 +26,9 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
       <label for="inputEmail4">Nom</label>
       <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputEmail4" placeholder="nom"
       name='nom'>
+      <small  class="form-text text-danger">
+          <?php echo isset($arrayError['nom']) ? $arrayError['nom'] : " "  ?>
+      </small>
     </div>
     <div class="form-group  mr-auto ml-auto  col-md-5">
       <label for="inputPassword4">Prenom</label>

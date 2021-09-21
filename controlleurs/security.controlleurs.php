@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 			$_SESSION['password']=$_POST['password'];
 			connexion_utilisateur($_POST['login'], $_POST['password']);
 		}elseif ($_POST['action']=='inscription') {
-			unset($_POST['confirme_password']);
-			inscription($_POST);
+			//unset($_POST['confirme_password']);
+			inscription($_POST, $_FILES);
 			
 		}
 	} else {
@@ -39,12 +39,13 @@ function connexion_utilisateur(string $login, string $password):void{
 	
 	if (form_valid($arrayError)) {
 		$utilisateur=find_utilisateur_by_login_password($login, $password);
-		if (gettype($utilisateur)==[]){
+		if (count($utilisateur)==0){
 			$arrayError['erreur']='login ou password incorrect';
+			header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	exit;
+	
 		}else {
 			$_SESSION['userConnect']=$utilisateur;
-			require(ROUTE_DIR.'views/catalogue/catalogue.html.php')	;
-		}
+			require(ROUTE_DIR.'views/catalogue/catalogue.html.php');		}
 	}else {
 		$_SESSION['arrayError']=$arrayError;
 		
@@ -52,7 +53,7 @@ function connexion_utilisateur(string $login, string $password):void{
 		exit();
 
 }
-function inscription(array $data):void{
+function inscription(array $data, array $files):void{
 	$arrayError=array();
 	extract($data);
 	validation_nom($nom,'nom',$arrayError);
@@ -63,14 +64,27 @@ function inscription(array $data):void{
 	validation_nom($adresse,'adresse',$arrayError);
 	validation_password($telephone,'telephone',$arrayError); 
 	
-	   
+	 
     if (form_valid($arrayError)) {
-	$user=add_user($data);
-	   header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');
-	   exit;
+	    $target_dir="upload/";
+	    $target_file=$target_dir . basename($_FILES["avatar"]["name"]);
+	    $data['avatar']=$target_file;
+	add_user($data);
+	valide_image($_FILES, $arrayError, 'avatar', $target_file);
+              //upload_image($_FILES, $target_file);
+             
+                if(count($arrayError) == 0) {
+                  if(!upload_image($_FILES, $target_file)) {
+                      $arrayError['avatar'] = "Erreur lors de l'upload de l'image";
+                      $_SESSION['arrayError']=$arrayError;
+                      header('location:'.WEB_ROUTE.'?controlleurs=security&view=inscription');
+                      exit();
+                }
+              }
+	require(ROUTE_DIR.'views/acceuil/acceuil.html.php');	   exit;
 	}else {
 		$_SESSION['arrayError']=$arrayError;
-		header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');
+		require(ROUTE_DIR.'views/security/inscription.html.php');	   exit;
 		exit;
 	    }
 	}
@@ -78,8 +92,7 @@ function inscription(array $data):void{
 
 function deconexion ():void{
 	unset($_SESSION['userConnect']);
-	header('location:'.WEB_ROUTE.'?controlleurs=security&views=acceuil');
-
+	require(ROUTE_DIR.'views/acceuil/acceuil.html.php');
 	exit;
 	}
 
