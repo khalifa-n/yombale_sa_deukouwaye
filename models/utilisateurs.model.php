@@ -8,9 +8,24 @@ function find_utilisateur_by_login_password(string $loguin, string $password):ar
 	and u.password=?";
 	$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 	$sth->execute(array($loguin,$password));
-	$utilisateur = $sth->fetch(PDO::FETCH_ASSOC);
+	$utilisateur = $sth->fetch();
 	fermer_connection_bd($pdo);
 	return $utilisateur ;   
     }
-    
-    ?>
+    function add_user(array $user):array{
+	$pdo= ouvrir_connection_bd();
+	extract($user);
+	$sql="    INSERT INTO `user` (`nom`, `prenom`, `login`,
+	 	`password`,`confirme_password`, `adresse`, `id_role`, `telephone`,`date_naissance`) 
+		VALUES ( ?, ?,? , 
+		?, ?, ?, ?,?,?)";
+		
+	$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	$sth->execute(array ($nom,$prenom,$login,$password,$confirme_password,$adresse,19,$telephone,$date_naissance));
+	$inscrire = $sth->fetchAll();
+	fermer_connection_bd($pdo);
+	return $inscrire;
+	
+} 
+ ?>
+

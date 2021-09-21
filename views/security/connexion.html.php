@@ -4,7 +4,7 @@
   unset($_SESSION['arrayError']);
 }
 require(ROUTE_DIR.'views/inc/header.html.php');
-require(ROUTE_DIR.'views/inc/menu.gestionnaire.html.php');
+require(ROUTE_DIR.'views/inc/menu.html.php');
 
 
 ?>
@@ -15,13 +15,13 @@ require(ROUTE_DIR.'views/inc/menu.gestionnaire.html.php');
               <div class="container_form"style="background-color:white">
                 
              
-              <form  method="post" action="<?= WEB_ROUTE ?>" class="m-auto">
+              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
               <input type="hidden" name="controlleurs" value="security">  
 		          <input type="hidden" name="action" value="connexion">  
                 <p class=" connexion"> </p>
                   <div class="form-group mt-5 mr-5 ml-5"  >
                          <label for="exampleInputEmail1">Email address</label>
-                         <input type="text"style="background-color:#D3D0C9" name="login" class="form-control" value="<?= !isset($arrayError['login']) ?$_SESSION['login']: ''?>"
+                         <input type="text"style="background-color:#D3D0C9" name="login" class="form-control" 
                           id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                              <small  class="form-text text-danger">
                                  <?php echo isset($arrayError['login']) ? $arrayError['login'] : " "  ?>
@@ -29,7 +29,7 @@ require(ROUTE_DIR.'views/inc/menu.gestionnaire.html.php');
                   </div>
                   <div class="form-group  mr-5 ml-5">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="text" style="background-color:#D3D0C9" name="password" class="form-control" value="<?= !isset($arrayError['password']) ?$_SESSION['password']: ''?>"
+                        <input type="text" style="background-color:#D3D0C9" name="password" class="form-control" 
                         id="exampleInputPassword1" placeholder="Password">
                              <small  class="form-text text-danger">
                                  <?php echo isset($arrayError['password']) ? $arrayError['password'] : " "  ?>

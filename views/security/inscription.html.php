@@ -14,44 +14,89 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
               <div class="container_form"style="background-color:white">
                 
              
-              <form  method="post" action="<?= WEB_ROUTE ?>" class="m-auto">
+              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
               <input type="hidden" name="controlleurs" value="security">  
-		          <input type="hidden" name="action" value="inscription">  
-                <p class=" connexion"> </p>
+		 <input type="hidden" name="action" value="inscription">  
+                <p class=" inscription"> </p>
                   
                  
 		
   <div class="form-row">
     <div class="form-group mr-auto ml-auto col-md-5">
-      <label for="inputEmail4">Email</label>
-      <input type="email"style="background-color:#D3D0C9" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="inputEmail4">Nom</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputEmail4" placeholder="nom"
+      name='nom'>
     </div>
     <div class="form-group  mr-auto ml-auto  col-md-5">
-      <label for="inputPassword4">Password</label>
-      <input type="password"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="inputPassword4">Prenom</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="Prenom"
+      name='prenom'>
+      <small  class="form-text text-danger">
+          <?php echo isset($arrayError['prenom']) ? $arrayError['prenom'] : " "  ?>
+      </small>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group mr-auto ml-auto col-md-5">
-      <label for="inputEmail4">Email</label>
-      <input type="email" style="background-color:#D3D0C9"class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="inputEmail4">login</label>
+      <input type="text" style="background-color:#D3D0C9"class="form-control" id="inputEmail4" placeholder="login"
+      name="login">
+      <small  class="form-text text-danger">
+                <?php echo isset($arrayError['login']) ? $arrayError['login'] : " "  ?>
+	 </small>
     </div>
     <div class="form-group mr-auto ml-auto col-md-5">
       <label for="inputPassword4">Password</label>
-      <input type="password"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="Password"
+      name='password'>
+      <small  class="form-text text-danger">
+           <?php echo isset($arrayError['password']) ? $arrayError['password'] : " "  ?>
+         </small>
     </div>
   </div>
-  <div class="form-group mr-5 ml-5">
-    <label for="inputAddress">Address</label>
-    <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputAddress" placeholder="1234 Main St">
+
+  <div class="form-row">
+    <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputEmail4">confirme password</label>
+      <input type="text" style="background-color:#D3D0C9"class="form-control" id="inputEmail4" placeholder="confirme password"
+      name='confirme_password'>
+      <small  class="form-text text-danger">
+           <?php echo isset($arrayError['confirme_password']) ? $arrayError['confirme_password'] : " "  ?>
+         </small> 
+    </div>
+    <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputPassword4">adresse</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="adresse"
+      name='adresse'>
+      <small  class="form-text text-danger">
+           <?php echo isset($arrayError['adresse']) ? $arrayError['adresse'] : " "  ?>
+         </small>
+    </div>
   </div>
-  <div class="form-group mr-5 ml-5">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
+  <div class="form-row">
+  <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputPassword4">telephone</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="telephone"
+      name='telephone'>
+      <small  class="form-text text-danger">
+           <?php echo isset($arrayError['telephone']) ? $arrayError['telephone'] : " "  ?>
+         </small>
+    </div>
+    <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputPassword4">date naissance</label>
+      <input type="date"style="background-color:#D3D0C9" class="form-control" id="inputPassword4" placeholder="date naissance"
+      name='date_naisse'>
+      <small  class="form-text text-danger">
+           <?php echo isset($arrayError['date_naisse']) ? $arrayError['date_naisse'] : " "  ?>
+         </small>
+    </div>
+  </div>  
+  <!-- <div class="form-group mr-auto ml-auto col-md-5 ">
+                     <label for="fichier">Fichier</label>
+                     <input type="file" style="background-color:#D3D0C9" class="form-control-file" id="fichier">
+                 </div> -->
   
- 
-  <button type="submit" style="background-color:#7D5939" class="btn mr-5 mt-3 mb-5 ml-5 ">connexion</button>
+  <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn mr-5 ml-auto mt-3 mb-5  ">inscription</button>
 
 
               </form>  
