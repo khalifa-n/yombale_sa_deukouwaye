@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 }
 }elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	
-	if (isset($_POST['action'])) {
+	if (isset($_POST['action'])) {p
 		if ($_POST['action']=='connexion') {
 			$_SESSION['login']=$_POST['login'];
 			$_SESSION['password']=$_POST['password'];
@@ -38,20 +38,37 @@ function connexion_utilisateur(string $login, string $password):void{
 	validation_password($password,'password',$arrayError);
 	
 	if (form_valid($arrayError)) {
+	
 		$utilisateur=find_utilisateur_by_login_password($login, $password);
 		if (count($utilisateur)==0){
 			$arrayError['erreur']='login ou password incorrect';
 			header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	exit;
 	
 		}else {
+			
 			$_SESSION['userConnect']=$utilisateur;
-			require(ROUTE_DIR.'views/catalogue/catalogue.html.php');		}
+			if (est_gestionnaire()) {
+				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+	
+			}elseif (est_proprietaire()) {
+				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+	
+			}elseif (est_client()) {
+				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+	
+			}elseif (est_responsable_location()) {
+				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+			}elseif (est_responsable_financier()) {
+				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+	
+			}
+		}
 	}else {
 		$_SESSION['arrayError']=$arrayError;
 		
- 	header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	}
+ 	header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	
 		exit();
-
+	}
 }
 function inscription(array $data, array $files):void{
 	$arrayError=array();

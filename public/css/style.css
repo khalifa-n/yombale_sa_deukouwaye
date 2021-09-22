@@ -91,7 +91,7 @@ ul {
 	      }
 	      
 	      .button {
-		background: darkgoldenrod;
+		background: #7D5939 ;
 		padding: 1em 2em;
 		text-transform: uppercase;
 		font-weight: 600;
@@ -114,4 +114,5 @@ ul {
 	      
 	      .button--highlight::after {
 		content: "✓";
-	      }	
+	      }
+	      /* dedoublement	 */

@@ -9,7 +9,13 @@ if (isset($_REQUEST['controlleurs'])) {
     }
 
 }else {
-    require(ROUTE_DIR.'views/acceuil/acceuil.html.php');
+	liste_logement_disponible();	
+}
+function liste_logement_disponible(){
+	
+	$logements= find_logement_disponible();
+       require(ROUTE_DIR.'views/acceuil/acceuil.html.php');
+       return [] ;
 }
 
 ?>

@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
     <ul class="navbar-nav  mr-auto mb-3">
       <li class="nav-item active ">
-        <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=utilisateur&views=catalogue'?>">acceuil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=utilisateur&views=acceuil'?>">acceuil <span class="sr-only">(current)</span></a>
       </li>
     
     

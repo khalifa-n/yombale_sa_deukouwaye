@@ -94,10 +94,14 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
          </small>
     </div>
   </div>  
-  <!-- <div class="form-group mr-auto ml-auto col-md-5 ">
-                     <label for="fichier">Fichier</label>
-                     <input type="file" style="background-color:#D3D0C9" class="form-control-file" id="fichier">
-                 </div> -->
+   <div class="form-group mr-auto ml-auto col-md-10 ">
+                     <label for="avatar">avatar</label>
+                     <input type="file" style="background-color:#D3D0C9" class="form-control-file" id="fichier"
+                     name="avatar" >
+                     <small id="imagelHelp"  class="form-text text-danger">
+                     <?php echo  $arrayError['avatar']?>
+
+                 </div> 
   
   <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn mr-5 ml-auto mt-3 mb-5  ">inscription</button>
 
