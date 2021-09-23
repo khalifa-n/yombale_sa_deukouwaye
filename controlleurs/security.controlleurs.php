@@ -52,7 +52,7 @@ function connexion_utilisateur(string $login, string $password):void{
 			// var_dump($_SESSION);
 			$_SESSION['userConnect']=$utilisateur;
 			if (est_gestionnaire()) {
-				require(ROUTE_DIR.'views/gestionnaire/gestionnaire.html.php');
+				require(ROUTE_DIR.'views/gestionnaire/ajoute.logement.html.php');
 			}elseif (est_proprietaire()) {
 				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
 	
@@ -108,6 +108,7 @@ function inscription(array $data, array $files):void{
 		exit;
 	    }
 	}
+	
 	
 	function deconexion ():void{
 	unset($_SESSION['userConnect']);
