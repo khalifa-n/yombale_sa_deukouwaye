@@ -15,7 +15,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
               <div class="container_form"style="background-color:white">
                 
              
-              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
+            <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
               <input type="hidden" name="controlleurs" value="security">  
 		          <input type="hidden" name="action" value="connexion">  
                 <p class=" connexion"> </p>
@@ -40,7 +40,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
                   </div>
                         
 
-              </form>  
+           </form>  
               </div>              
             </div>
       

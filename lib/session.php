@@ -2,7 +2,7 @@
 function open_session()
 {
     if (session_status() == PHP_SESSION_NONE) {
-     //;
+        ob_start();
        
     }
 }

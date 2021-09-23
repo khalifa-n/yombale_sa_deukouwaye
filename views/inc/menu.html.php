@@ -1,4 +1,5 @@
 
+
 <nav class="navbar navbar-expand-lg navbar-light"    >
 <img src="image/logo.png/" class="img-fluid mb-5 " alt="Responsive image">   </div>
 
@@ -9,7 +10,7 @@
 <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
   <ul class="navbar-nav  mr-auto mb-3">
     <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=utilisateur&views=catalogue'?>">acceuil <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=security&views=catalogue'?>">acceuil <span class="sr-only">(current)</span></a>
     </li>
   
   
@@ -25,7 +26,7 @@
         <a class="dropdown-item" href="#">signer contrat</a>
     </li>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">ajouter logement<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">ajouter logement<span class="sr-only">(current)</span></a>
     </li> 
     <?php endif?> 
 
@@ -60,7 +61,7 @@
     </li> 
   </ul>
   <?php endif ?>
-<ul class="  ml-5">
+<ul class="utilisateur  ">
 <li class="nav-item dropdown men  ">
       <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         utilisateur

@@ -1,20 +1,24 @@
 <?php
+  ob_start();
 if ($_SERVER['REQUEST_METHOD']=='GET') {
 	if (isset($_GET['views'])) {
-	   if ($_GET['views']=='connexion') {
+	       if ($_GET['views']=='connexion') {
+		require(ROUTE_DIR.'views/security/connexion.html.php');
+		}elseif ($_GET['views']=='inscription') {
+			require(ROUTE_DIR.'views/security/inscription.html.php');
+		}elseif ($_GET['views']=='deconexion') {
+			deconexion();
+		} elseif ($_GET['views']=='catalogue') {
+			liste_logement_disponible();	
+		}
 	
-	    require(ROUTE_DIR.'views/security/connexion.html.php');
-	   
-	}elseif ($_GET['views']=='inscription') {
-		require(ROUTE_DIR.'views/security/inscription.html.php');
-	}elseif ($_GET['views']=='deconexion') {
-		deconexion();
-	} 
-	
-}
+      }else {
+	liste_logement_disponible();	
+ 
+      }
 }elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	
-	if (isset($_POST['action'])) {p
+	if (isset($_POST['action'])) {
 		if ($_POST['action']=='connexion') {
 			$_SESSION['login']=$_POST['login'];
 			$_SESSION['password']=$_POST['password'];
@@ -25,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 			
 		}
 	} else {
-		require(ROUTE_DIR.'views/security/connexion.html.php');
+		require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
 	    }
 }
 
@@ -45,11 +49,10 @@ function connexion_utilisateur(string $login, string $password):void{
 			header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	exit;
 	
 		}else {
-			
+			// var_dump($_SESSION);
 			$_SESSION['userConnect']=$utilisateur;
 			if (est_gestionnaire()) {
-				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
-	
+				require(ROUTE_DIR.'views/gestionnaire/gestionnaire.html.php');
 			}elseif (est_proprietaire()) {
 				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
 	
@@ -105,14 +108,14 @@ function inscription(array $data, array $files):void{
 		exit;
 	    }
 	}
-
-
-function deconexion ():void{
+	
+	function deconexion ():void{
 	unset($_SESSION['userConnect']);
-	require(ROUTE_DIR.'views/acceuil/acceuil.html.php');
+	liste_logement_disponible();	
 	exit;
 	}
 
 
-
+	ob_end_flush();
+	
 ?>

@@ -1,6 +1,4 @@
-body{
-	overflow-x: hidden;
-}
+
  a{
 	color: #7D5939 !important;
 }
@@ -12,6 +10,9 @@ body{
 	background-color:#D3D0C9;
 		
 } 
+.navbar-fixed-top{
+	position:fixed;
+}
 .menu{
 	margin-left: 200px;
 }
@@ -27,6 +28,9 @@ body{
 }
 .couleur_marron{
 	height:500px;
+}
+.utilisateur{
+	margin-left: 200px;
 }
 
 /* button */
@@ -116,3 +120,6 @@ ul {
 		content: "✓";
 	      }
 	      /* dedoublement	 */
+	      .option:hover{
+			background-color: #ddd;
+	      }
