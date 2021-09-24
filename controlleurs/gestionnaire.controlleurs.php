@@ -26,13 +26,15 @@ $utilisateur
 	];	
 
  $in_logement=insert_logement($logement);
+ 
 	
 }
 
 function show_ajout_logement(){
-	$logements=select_type_logement();
 	$zones=select_zone();
       $proprietaires=select_utilisateur();
+      $logements= find_logement_disponible();
+
      require(ROUTE_DIR.'views/gestionnaire/ajoute.logement.html.php');
 }
 

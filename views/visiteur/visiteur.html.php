@@ -26,14 +26,14 @@ data-toggle="dropdown">Choisissez <span class="caret"></span></button>
     <!-- -----------------------------------------------------------CONTAINER -->
     <div class="container-fluid">
       <div class="row">
-      <?php foreach ($logements as $logement) :?> 
+	<?php foreach ($logements as $logement) :?> 
         <div class="col-sm-4 mb-4">
           <div class="card" style="width: 18rem">
             <img
 	     src="image/maison.jpeg/" class="img-fluid  mt_" alt="Responsive image" /> 
         
             <div class="card-body">
-              <p class="text_warning"><?php echo $logement['type_logement'] .'' .''.$logement['adresse']?>à keur massar</p>
+              <p class="text_warning"><?= $logement['type_logement'] .' '.'à'.' '.$logement['adressse']?></p>
 	      <p class="text_warning">130.000.000 fcafa</p>
               <hr />
               <span class="float-left btn btn-sm text-center disabled"
@@ -48,8 +48,8 @@ data-toggle="dropdown">Choisissez <span class="caret"></span></button>
           </div>
         </div>
        
-        
-        <?php endforeach ?> 
+	<?php endforeach ?>
+ 
      </div> 
 
       <div class="row text-center">

@@ -8,13 +8,8 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 			require(ROUTE_DIR.'views/security/inscription.html.php');
 		}elseif ($_GET['views']=='deconexion') {
 			deconexion();
-		} elseif ($_GET['views']=='catalogue') {
-			liste_logement_disponible();	
-		}
+		} 
 	
-      }else {
-	liste_logement_disponible();	
- 
       }
 }elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	
@@ -46,7 +41,6 @@ function connexion_utilisateur(string $login, string $password):void{
 		$utilisateur=find_utilisateur_by_login_password($login, $password);
 		if (count($utilisateur)==0){
 			$arrayError['erreur']='login ou password incorrect';
-			header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	exit;
 	
 		}else {
 			// var_dump($_SESSION);

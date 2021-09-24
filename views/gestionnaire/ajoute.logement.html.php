@@ -6,6 +6,7 @@
 require(ROUTE_DIR.'views/inc/header.html.php');
 require(ROUTE_DIR.'views/inc/menu.html.php');
 
+
 ?>
 
   <div class="container-fluid" >
@@ -105,7 +106,6 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
  
 
   <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn mr-5 ml-auto mt-3 mb-5  ">ajouter</button>
-  <a href="<?= WEB_ROUTE.'?controlleurs=security&views=catalogue'?>"><button style="background-color:#7D5939" class="btn mt-5 ml-5  ">creer un compte</button></a>
   </div>
               </form>  
               </div>              

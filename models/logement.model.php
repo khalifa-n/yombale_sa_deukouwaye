@@ -1,8 +1,10 @@
 <?php
 
-function find_logement_disponible(string $etat_logement="disponible"):array{
+function find_logement_disponible():array{
 	$pdo=ouvrir_connection_bd();
-	$sql="select * from logement l where l.etat_logement=?";
+	$sql="select * from logement l,type_logement t
+		 where l.id_type_logement = t.id_type_logement
+	 		 and l.etat_logement=?";
 	$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 	$sth->execute(array('disponible'));
 	$logements = $sth->fetchAll();
