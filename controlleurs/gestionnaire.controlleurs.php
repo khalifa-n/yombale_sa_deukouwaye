@@ -12,23 +12,47 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 
 	}
 }
-function inserer_logement(array $data) {
+function inserer_logement(array $data,array $files) {
 extract($data);
+
+ if (form_valid($arrayError)) {
+	$target_dir="upload/";
+	$target_file=$target_dir . basename($_FILES["image"]["name"]);
+	$data['image']=$target_file;
 	$logement=[
-rand(),
-$adresse,
-$surface,
-$logement,
-$type_logement,
-$zone,
-$utilisateur
+		rand(),
+		$adresse,
+		$surface,
+		"disponible",
+		$type_logement,
+		
+		$_POST['utilisateur']
+	
+			];	
+	$id_logement=insert_logement($logement);
 
-	];	
-
- $in_logement=insert_logement($logement);
- 
+	
+	upload_images($_FILES, $arrayError, 'image', $target_file);
+	  //upload_image($_FILES, $target_file);
+	 
+	    if(count($arrayError) == 0) {
+	      if(!upload_images($_FILES, $target_file)) {
+		  $arrayError['image'] = "Erreur lors de l'upload de l'image";
+		  $_SESSION['arrayError']=$arrayError;
+		  header('location:'.WEB_ROUTE.'?controlleurs=gestionnaire&view=ajoute.logement');
+		  exit();
+	    }
 	
 }
+}else {
+	$_SESSION['arrayError']=$arrayError;
+	require(ROUTE_DIR.'views/gestionnaire/ajoute.logement.html.php');	   exit;
+	exit;
+    }
+}
+
+
+
 
 function show_ajout_logement(){
 	$zones=select_zone();

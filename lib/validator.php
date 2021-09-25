@@ -1,5 +1,4 @@
 <?php 
-
 function est_vide(string $valeur): bool {
     return empty($valeur);
 }

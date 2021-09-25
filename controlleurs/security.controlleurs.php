@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 			
 		}
 	} else {
-		require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+		require(ROUTE_DIR.'views/visiteur/visiteur.html.php');
 	    }
 }
 
@@ -63,7 +63,7 @@ function connexion_utilisateur(string $login, string $password):void{
 	}else {
 		$_SESSION['arrayError']=$arrayError;
 		
- 	header("location:".WEB_ROUTE.'?controlleurs=security&views=connexion');	
+ 	header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	
 		exit();
 	}
 }
@@ -95,7 +95,7 @@ function inscription(array $data, array $files):void{
                       exit();
                 }
               }
-	require(ROUTE_DIR.'views/acceuil/acceuil.html.php');	   exit;
+	require(ROUTE_DIR.'views/visiteur/visiteur.html.php');	   exit;
 	}else {
 		$_SESSION['arrayError']=$arrayError;
 		require(ROUTE_DIR.'views/security/inscription.html.php');	   exit;
@@ -111,6 +111,5 @@ function inscription(array $data, array $files):void{
 	}
 
 
-	ob_end_flush();
 	
 ?>

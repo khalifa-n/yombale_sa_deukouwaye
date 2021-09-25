@@ -1,5 +1,4 @@
-<?php
- 
+<?php 
  function est_gestionnaire():bool{
  	return est_connect() && $_SESSION['userConnect']['nom_role']=='gestionnaire';
  }

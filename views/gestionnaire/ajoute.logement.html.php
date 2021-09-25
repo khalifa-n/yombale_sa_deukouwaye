@@ -88,11 +88,11 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
     </div>
     
     <div class="form-group mr-auto ml-auto col-md-5 ">
-                     <label for="avatar">avatar</label>
+                     <label for="image">image</label>
                      <input type="file" style="background-color:#D3D0C9" class="form-control-file h-75" id="fichier"
-                     name="avatar" >
+                     name="image" >
                      <small id="imagelHelp"  class="form-text text-danger">
-                     <?php echo  $arrayError['avatar']?>
+                     <?php echo  $arrayError['image']?>
 
                  </div> 
    
