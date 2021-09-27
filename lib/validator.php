@@ -44,7 +44,13 @@ function validation_prenom(string $valeur, string  $key, array &$arrayError){
     if (est_vide($valeur)) {
         $arrayError[$key] = "ce champ est obligatoire";
     }
-} 
+}
+function validation(string $valeur, string  $key, array &$arrayError){
+    if (est_vide($valeur)) {
+        $arrayError[$key] = "ce champ est obligatoire";
+    }
+}
+
 
 
 ?>

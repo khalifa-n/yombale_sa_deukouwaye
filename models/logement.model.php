@@ -14,14 +14,16 @@ function find_logement_disponible():array{
 
 function insert_logement(array $logement):int{
 	$pdo= ouvrir_connection_bd();
+	extract($logement);
 	$sql="INSERT INTO `logement` (`reference`, `adressse`, `surface`, `etat_logement`, `id_type_logement`, 
 	`id_zone`, `id_utilisateur`) VALUES (?, ?, ?, ?,
 	?, ?, ?)";
 	 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-      $sth->execute($logement);
-      $dernier_id = $pdo->lastInsertId();
+
+      $sth->execute(array(rand(),$adresse,$surface,'disponible',$type_logement,$zone,$proprietaire));
+      $ajouter = $pdo->lastInsertId();
       fermer_connection_bd($pdo);//fermeture
-      return $dernier_id ;
+      return $ajouter ;
 }
 
 function insert_image(array $image):int{

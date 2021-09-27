@@ -46,9 +46,9 @@ function connexion_utilisateur(string $login, string $password):void{
 			// var_dump($_SESSION);
 			$_SESSION['userConnect']=$utilisateur;
 			if (est_gestionnaire()) {
-				require(ROUTE_DIR.'views/gestionnaire/ajoute.logement.html.php');
+				header('location:'.WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement');	
 			}elseif (est_proprietaire()) {
-				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+				require(ROUTE_DIR.'views/proprietaire/mes.contrat.html.php');
 	
 			}elseif (est_client()) {
 				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
@@ -75,8 +75,8 @@ function inscription(array $data, array $files):void{
 	validation_login($login,'login',$arrayError);
 	validation_password($password,'password',$arrayError); 
 	
-	validation_nom($adresse,'adresse',$arrayError);
-	validation_password($telephone,'telephone',$arrayError); 
+	validation($adresse,'adresse',$arrayError);
+	validation($telephone,'telephone',$arrayError); 
 	
 	 
     if (form_valid($arrayError)) {
@@ -95,7 +95,7 @@ function inscription(array $data, array $files):void{
                       exit();
                 }
               }
-	require(ROUTE_DIR.'views/visiteur/visiteur.html.php');	   exit;
+	require(ROUTE_DIR.'views/security/connexion.html.php');	   exit;
 	}else {
 		$_SESSION['arrayError']=$arrayError;
 		require(ROUTE_DIR.'views/security/inscription.html.php');	   exit;
@@ -106,8 +106,7 @@ function inscription(array $data, array $files):void{
 	
 	function deconexion ():void{
 	unset($_SESSION['userConnect']);
-	liste_logement_disponible();	
-	exit;
+	require(ROUTE_DIR.'views/security/connexion.html.php');	   exit;	exit;
 	}
 
 

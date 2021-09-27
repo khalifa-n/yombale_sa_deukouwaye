@@ -1,8 +1,5 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-light"    >
 <img src="image/logo.png/" class="img-fluid mb-5 " alt="Responsive image">   </div>
-
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -12,10 +9,6 @@
     <li class="nav-item active ">
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=visiteur&views=visiteur'?>">Acceuil <span class="sr-only">(current)</span></a>
     </li>
-  
-  
-      
-
     <?php if (est_gestionnaire())  :?>
       <li class="nav-item dropdown ">
       <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,8 +22,6 @@
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">Ajouter logement<span class="sr-only">(current)</span></a>
     </li> 
     <?php endif?> 
-
-    
     <?php if (est_client())  :?>
       <li class="nav-item active ">
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Mes demandes<span class="sr-only">(current)</span></a>
@@ -40,7 +31,7 @@
     <?php endif?>  
     <?php if (est_proprietaire())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Mes contrats<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat'?>">Mes contrats<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active ">
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Mes paiements<span class="sr-only">(current)</span></a>

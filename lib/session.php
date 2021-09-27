@@ -2,16 +2,18 @@
 function open_session()
 {
     if (session_status() == PHP_SESSION_NONE) {
-        ob_start();
        
+       ob_start();
     }
 }
-function destroy_session(){
+
+
+function destroy_session()
+{
     session_destroy();
 }
 
 function est_connect():bool{
 	return isset($_SESSION['userConnect']);
 }
-
 ?>
