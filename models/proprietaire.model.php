@@ -9,8 +9,5 @@ function find_contrat_proprietaire(int $id_utilisateur):array{
 		 $contrats = $sth->fetchAll();
 		 fermer_connection_bd($pdo);	
 		 return  $contrats;	
-		 	 
-
-}
-
+		}
 ?>

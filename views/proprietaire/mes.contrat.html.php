@@ -21,20 +21,21 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
     </tr>
   </thead>
   <tbody>
-    <tr>
+    
 
     <?php
 
-	$id_utilisateur=$_SESSION['userConnect'];
+	$id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
 	$contrats=find_contrat_proprietaire($id_utilisateur);
 
      foreach ($contrats as $contrat) :?> 
-      <td><?php echo $contrat['date_debut']?></td>
-      <td><?php echo $contrat['duree']?></td>
-      <td><?php echo $contrat['montant_contrat']?></td>
+          <tr>
+              <td><?php echo $contrat['date_debut']?></td>
+              <td><?php echo $contrat['dure']?></td>
+              <td><?php echo $contrat['montant_contrat']?></td>
+          </tr>
       <?php endforeach ?>
 
-    </tr>
   </tbody>
 </table>	
       </div>
@@ -43,3 +44,6 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
  
 </div>	
 </div>
+<?php
+require(ROUTE_DIR.'views/inc/footer.html.php');
+?>

@@ -34,7 +34,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
                              </small>
                   </div>
                   <button type="submit" style="background-color:#7D5939" class="btn mr-5 mt-3 mb-5 ml-5 ">connexion</button>
-                       <a href="<?= WEB_ROUTE.'?controlleurs=security&views=catalogue'?>"><button style="background-color:#7D5939" class="btn mt-5 ml-5  ">creer un compte</button></a>
+                       <a href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>>"><button style="background-color:#7D5939" class="btn mt-5 ml-5  ">creer un compte</button></a>
                   </div>
                         
 

@@ -15,7 +15,7 @@
         contrat
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="">Mes contrats</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.proprietaires'?>">Mes contrats</a>
         <a class="dropdown-item" href="#">Signer contrat</a>
     </li>
       <li class="nav-item active ">
@@ -24,7 +24,7 @@
     <?php endif?> 
     <?php if (est_client())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Mes demandes<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=client&views=client'?>">Mes demandes<span class="sr-only">(current)</span></a>
     </li> 
 </div>
     </li>
@@ -65,7 +65,6 @@
         <?php if (!est_connect())  :?> 
         <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=connexion'?>">Se connecter</a> 
         <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>">S'inscrire</a>
-        <div class="dropdown-divider"></div>
         
         <?php endif?>
 

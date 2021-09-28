@@ -10,6 +10,9 @@ if (isset($_REQUEST['controlleurs'])) {
         }elseif ($_REQUEST['controlleurs'] =='proprietaire') {
             require_once(ROUTE_DIR .'controlleurs/proprietaire.controlleurs.php');
  
+        }elseif ($_REQUEST['controlleurs'] =='client') {
+            require_once(ROUTE_DIR .'controlleurs/client.controlleurs.php');
+ 
         }
 }else {
     require_once(ROUTE_DIR .'controlleurs/visiteur.controlleurs.php');

@@ -8,11 +8,8 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 }
 }
 function contrat_par_proprietaire(){
-	
-	
-	$id_utilisateur=$_SESSION['userConnect'];
-	$contrats=find_contrat_proprietaire($id_utilisateur);
+	$id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
+	$contrats=find_contrat_proprietaire((int)$id_utilisateur);
 	require(ROUTE_DIR.'views/proprietaire/mes.contrat.html.php');
-
 }
 ?>

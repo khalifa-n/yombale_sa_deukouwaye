@@ -15,7 +15,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
   <thead>
     <tr>
      
-      <th scope="col">date demande</th>
+      <th scope="col">date debut</th>
       <th scope="col">durée</th>
       <th scope="col">montant</th>
     </tr>
@@ -44,3 +44,6 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
  
 </div>	
 </div>
+<?php
+require(ROUTE_DIR.'views/inc/footer.html.php');
+?>

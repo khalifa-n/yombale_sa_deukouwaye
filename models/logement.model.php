@@ -1,5 +1,4 @@
 <?php
-
 function find_logement_disponible():array{
 	$pdo=ouvrir_connection_bd();
 	$sql="select * from logement l,type_logement t
@@ -90,7 +89,16 @@ function select_type_logement():array{
 	$logement = $sth->fetchAll();
 	fermer_connection_bd($pdo);
 	return $logement;
-
 }
-
-    ?>
+		function find_contrat_gestionnaire(string $etat_contrat):array{
+			$pdo=ouvrir_connection_bd();
+			$sql="select * from contrat_proprietaire cp
+			 where cp.etat_contrat= ?";
+				 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+				 $sth->execute(array($etat_contrat));
+				 $contrat_gestionnaires = $sth->fetchAll();
+				 fermer_connection_bd($pdo);	
+				 return  $contrat_gestionnaires;	
+					 
+		}	 		
+?>

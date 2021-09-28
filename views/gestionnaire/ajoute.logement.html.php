@@ -70,7 +70,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
       id="floatingSelectGrid"  aria-label="Floating label select example" >
         <option  selected>choisir le type de logement</option>
         <?php foreach($logements as $logement):  ?> 
-          <option value="<?= $logement['id_type_logement']?>"><?= $logement['type_logement[]']?></option>
+          <option value="<?= $logement['id_type_logement']?>"><?= $logement['type_logement']?></option>
           <?php endforeach   ?> 
 
       </select>
@@ -78,21 +78,21 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 	 </small>
     </div>
     
-    <!-- <div class="form-group mr-auto ml-auto col-md-5 ">
+    <div class="form-group mr-auto ml-auto col-md-5 ">
                      <label for="image">image</label>
                      <input type="file" style="background-color:#D3D0C9" class="form-control-file h-75" id="fichier"
                      name="image" >
                      <small id="imagelHelp"  class="form-text text-danger">
                       <?php //echo  $arrayError['image']?> 
 
-       </div>  -->
+       </div>  
     </div> 
      
   <div>
     
  
 
-  <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn mr-5 ml-auto mt-3 mb-5  ">ajouter</button>
+  <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn ajouter mt-3 mb-5  ">ajouter</button>
         </div>
   </div>
               </form>  

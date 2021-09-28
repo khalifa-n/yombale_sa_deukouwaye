@@ -48,5 +48,4 @@ function find_utilisateur_by_login_password(string $loguin, string $password):ar
 	return $inscrire;
 	
 } 
- ?>
-
+?>

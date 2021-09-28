@@ -2,8 +2,8 @@
 function open_session()
 {
     if (session_status() == PHP_SESSION_NONE) {
-       
-       ob_start();
+      session_start();   
+    /// ob_start();
     }
 }
 

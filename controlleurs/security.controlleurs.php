@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 	if (isset($_POST['action'])) {
 		if ($_POST['action']=='connexion') {
 			$_SESSION['login']=$_POST['login'];
-			$_SESSION['password']=$_POST['password'];
+			// $_SESSION['password']=$_POST['password'];
 			connexion_utilisateur($_POST['login'], $_POST['password']);
 		}elseif ($_POST['action']=='inscription') {
 			//unset($_POST['confirme_password']);
@@ -48,11 +48,9 @@ function connexion_utilisateur(string $login, string $password):void{
 			if (est_gestionnaire()) {
 				header('location:'.WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement');	
 			}elseif (est_proprietaire()) {
-				require(ROUTE_DIR.'views/proprietaire/mes.contrat.html.php');
-	
+				header('location:'.WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat');		
 			}elseif (est_client()) {
-				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
-	
+				header('location:'.WEB_ROUTE.'?controlleurs=client&views=client');			
 			}elseif (est_responsable_location()) {
 				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
 			}elseif (est_responsable_financier()) {
