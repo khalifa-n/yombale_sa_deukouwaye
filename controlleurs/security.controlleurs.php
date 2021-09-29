@@ -93,19 +93,16 @@ function inscription(array $data, array $files):void{
                       exit();
                 }
               }
-	require(ROUTE_DIR.'views/security/connexion.html.php');	   exit;
-	}else {
+	      header('location:'.WEB_ROUTE.'?controlleurs=security&view=connexio');	}else {
 		$_SESSION['arrayError']=$arrayError;
-		require(ROUTE_DIR.'views/security/inscription.html.php');	   exit;
-		exit;
+		header('location:'.WEB_ROUTE.'?controlleurs=security&view=inscription');		exit;
 	    }
 	}
 	
 	
 	function deconexion ():void{
 	unset($_SESSION['userConnect']);
-	require(ROUTE_DIR.'views/security/connexion.html.php');	   exit;	exit;
-	}
+	header('location:'.WEB_ROUTE.'?controlleurs=security&view=connexion');	}
 
 
 	

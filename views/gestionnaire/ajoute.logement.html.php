@@ -69,7 +69,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
       <label for="inputEmail4">type de logement</label>
       <select class="form-select border-light rounded  col-md-12 h-75" style="background-color:#D3D0C9 " name='type_logement[]' placeholder="type_logement "
       id="floatingSelectGrid"  aria-label="Floating label select example" >
-        <option  selected>choisir le type de logement</option>
+        <option  selected>choisir le type de logement</option>  
         <?php foreach($logements as $logement):  ?> 
           <option value="<?= $logement['id_type_logement']?>"><?= $logement['type_logement']?></option>
           <?php endforeach   ?> 
@@ -88,7 +88,38 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 
        </div>  
     </div> 
-     
+      	
+  <div class="form-row">
+    <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputEmail4">DATE_DEBUT</label>
+      <input type="date"style="background-color:#D3D0C9" class="form-control h-75" id="inputEmail4" placeholder="date"
+      name='date'>
+      <small  class="form-text text-danger">
+          <?php echo isset($arrayError['adresse']) ? $arrayError['adresse'] : " "  ?>
+      </small>
+    </div>
+    <div class="form-group  mr-auto ml-auto  col-md-5">
+      <label for="inputPassword4">DUREE</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control h-75" id="inputPassword4" placeholder="duree"
+      name='duree'>
+      <small  class="form-text text-danger">
+          <?php echo isset($arrayError['surface']) ? $arrayError['surface'] : " "  ?>
+      </small>
+    </div>
+  </div>
+  <div class="form-row">
+  <div class="form-group  mr-auto ml-auto  col-md-5">
+      <label for="inputPassword4">MONTANT CONTRAT</label>
+      <input type="text"style="background-color:#D3D0C9" class="form-control h-75" id="inputPassword4" placeholder="montant contrat"
+      name='montant_contrat'>
+      <small  class="form-text text-danger">
+          <?php echo isset($arrayError['surface']) ? $arrayError['surface'] : " "  ?>
+      </small>
+    </div>
+    
+   
+ 
+
   <div>
     
  

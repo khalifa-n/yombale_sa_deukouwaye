@@ -13,7 +13,6 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
     <div class="col-md-10 mr-auto ml-auto mt-5">
       <div class="card">
         <div class="card-body">
-          <h2 class="text-center font-bold strong pt-4 pb-5 mb-5"><strong>Registration form with steps</strong></h2>
 
 <!-- Stepper -->
 <div class="steps-form-2">
@@ -24,9 +23,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
         <div class="steps-step-2">
             <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Personal Data"><i class="fa fa-pencil" aria-hidden="true"></i></a>
         </div>
-        <div class="steps-step-2">
-            <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Terms and Conditions"><i class="fa fa-photo" aria-hidden="true"></i></a>
-        </div>
+        
         <div class="steps-step-2">
             <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i></a>
         </div>
@@ -37,68 +34,60 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 <form role="form" action="" method="post">
     <div class="row setup-content-2" id="step-1">
         <div class="col-md-12">
-            <h3 class="font-weight-bold strong pl-0 my-4"><strong>Basic Information</strong></h3>
+            <h3 class="font-weight-bold strong pl-0 my-4"><strong>LOGEMENT</strong></h3>
             <div class="form-group md-form strong">
-                <label for="yourEmail-2" data-error="wrong" data-success="right">Email</label>
-                <input id="yourEmail-2" type="email" required="required" class=" form-control validate">
+                <label for="yourEmail-2" data-error="wrong" data-success="right">ADRESSE</label>
+                <input id="yourEmail-2" type="text" required="required" name="adresse" class=" form-control validate">
             </div>
             <div class="form-group md-form strong">
-                <label for="yourUsername-2" data-error="wrong" data-success="right">Username</label>
-                <input id="yourUsername-2" type="text" required="required" class="form-control validate">
+                <label for="yourUsername-2" data-error="wrong" data-success="right">SURFACE</label>
+                <input id="yourUsername-2" type="text" required="required"  name="surface"  class="form-control validate">
+            </div>
+            
+            <div class="form-group md-form mt-3 strong">
+                <label for="repeatPassword-2" data-error="wrong" data-success="right">TYPE DU LOGEMENT</label>
+                <input id="repeatPassword-2" type="password" required="required" name="type_logement" class="form-control validate">
             </div>
             <div class="form-group md-form mt-3 strong">
-                <label for="yourPassword-2" data-error="wrong" data-success="right">Password</label>
-                <input id="yourPassword-2" type="password" required="required" class="form-control validate">
-            </div>
-            <div class="form-group md-form mt-3 strong">
-                <label for="repeatPassword-2" data-error="wrong" data-success="right">Repeat Password</label>
-                <input id="repeatPassword-2" type="password" required="required" class="form-control validate">
+                <label for="repeatPassword-2" data-error="wrong" data-success="right">IMAGE</label>
+                <input id="repeatPassword-2" type="password" required="required" name="image"  class="form-control validate">
             </div>
             <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right strong" type="button">Next</button>
         </div>
     </div>
 
 <!-- Second Step -->
+
+
+
     <div class="row setup-content-2" id="step-2">
         <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4 strong"><strong>Personal Data</strong></h3>
+            <h3 class="font-weight-bold pl-0 my-4 strong"><strong>CONTRAT</strong></h3>
             <div class="form-group md-form strong">
-                <label for="yourName-2" data-error="wrong" data-success="right">First Name</label>
+                <label for="yourName-2" data-error="wrong" data-success="right">PROPRIETAIRE</label>
                 <input id="yourName-2" type="text" required="required" class="form-control validate">
             </div>
             <div class="form-group md-form mt-3 strong">
-                <label for="secondName-2" data-error="wrong" data-success="right">Second Name</label>
+                <label for="secondName-2" data-error="wrong" data-success="right">DATE DEBUT</label>
                 <input id="secondName-2" type="text" required="required" class="form-control validate">
             </div>
             <div class="form-group md-form strong">
-                <label for="surname-2" data-error="wrong" data-success="right">Surname</label>
+                <label for="surname-2" data-error="wrong" data-success="right">DUREE</label>
                 <input id="surname-2" type="text" required="required" class="form-control validate">
             </div>
-            <div class="form-group md-form mt-3 strong ">
-                <label for="yourAddress-2" data-error="wrong" data-success="right">Address</label>
-                <textarea id="yourAddress-2" type="text" required="required" rows="2" class="md-textarea validate form-control"></textarea>
+            <div class="form-group md-form strong">
+                <label for="surname-2" data-error="wrong" data-success="right">MONTANT DU CONTRAT</label>
+                <input id="surname-2" type="text" required="required" class="form-control validate">
+            </div>
+            <div class="form-group md-form strong">
+                <label for="surname-2" data-error="wrong" data-success="right"></label>
+                <input id="surname-2" type="text" required="required" class="form-control validate">
             </div>
             <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
             <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
         </div>
     </div>
 
-    <!-- Third Step -->
-    <div class="row setup-content-2" id="step-3">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4 strong"><strong>Terms and conditions</strong></h3>
-            <div class="form-check">
-                <input type="checkbox" id="checkbox111" class="form-check-input">
-                <label for="checkbox111" class="form-check-label strong">I agree to the terms and conditions</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" id="checkbox112" class="form-check-input">
-                <label for="checkbox112" class="form-check-label strong">I want to receive newsletter</label>
-            </div>
-            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left strong" type="button">Previous</button>
-            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right strong" type="button">Next</button>
-        </div>
-    </div>
 
     <!-- Fourth Step -->
     <div class="row setup-content-2" id="step-4">

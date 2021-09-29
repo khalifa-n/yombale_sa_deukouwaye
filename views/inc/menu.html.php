@@ -15,12 +15,14 @@
         CONTRAT
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.gestionnaire'?>">MES CONTRATS</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.gestionnaire'?>">EN COURS</a>
         <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=signer.contrat'?>">SIGNER CONTRAT</a>
     </li>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">AJOUTER LOGEMENT<span class="sr-only">(current)</span></a>
-    </li> 
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">SIGNER CONTRAT<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active ">
+    </li>  
     <?php endif?> 
     <?php if (est_client())  :?>
       <li class="nav-item active ">
