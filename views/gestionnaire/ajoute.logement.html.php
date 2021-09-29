@@ -5,6 +5,7 @@
 }
 require(ROUTE_DIR.'views/inc/header.html.php');
 require(ROUTE_DIR.'views/inc/menu.html.php');
+
 ?>
   <div class="container-fluid" >
 	
@@ -102,6 +103,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
   </div> 
   </div> 
   </div> 
+  
 <?php
 require(ROUTE_DIR.'views/inc/footer.html.php');
 ?>

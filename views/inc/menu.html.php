@@ -7,64 +7,64 @@
 <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
   <ul class="navbar-nav  mr-auto mb-3">
     <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=visiteur&views=visiteur'?>">Acceuil <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=visiteur&views=visiteur'?>">ACCEUIL <span class="sr-only">(current)</span></a>
     </li>
     <?php if (est_gestionnaire())  :?>
       <li class="nav-item dropdown ">
       <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        contrat
+        CONTRAT
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.proprietaires'?>">Mes contrats</a>
-        <a class="dropdown-item" href="#">Signer contrat</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.gestionnaire'?>">MES CONTRATS</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=signer.contrat'?>">SIGNER CONTRAT</a>
     </li>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">Ajouter logement<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">AJOUTER LOGEMENT<span class="sr-only">(current)</span></a>
     </li> 
     <?php endif?> 
     <?php if (est_client())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=client&views=client'?>">Mes demandes<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=client&views=client'?>">MES DEMANDES<span class="sr-only">(current)</span></a>
     </li> 
 </div>
     </li>
     <?php endif?>  
     <?php if (est_proprietaire())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat'?>">Mes contrats<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat'?>">MES CONTRATS<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Mes paiements<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">MES PAIEMENTS<span class="sr-only">(current)</span></a>
     </li>
     <?php endif?> 
     <?php if (est_responsable_financier())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Enregistrer un loyer<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">ENREGISTRER UN LOYER<span class="sr-only">(current)</span></a>
     </li>
     <?php endif?> 
   
     <?php if (est_responsable_location())  :?>
       <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">mes demandes<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">MES DEMANDES<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">Signer un contrat<span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=signer.contrat'?>">SIGNER UN CONTRAT<span class="sr-only">(current)</span></a>
     </li> 
   </ul>
   <?php endif ?>
 <ul class="utilisateur  ">
 <li class="nav-item dropdown men  ">
       <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Utilisateur
+        UTILISATEUR
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         
     <?php if (est_connect())  :?> 
-        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=deconexion'?>">Se deconnecter</a>        
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=deconexion'?>">SE DECONNECTER</a>        
         <?php endif?>
         <?php if (!est_connect())  :?> 
-        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=connexion'?>">Se connecter</a> 
-        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>">S'inscrire</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=connexion'?>">SE CONNECTER</a> 
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>">S'INSCRIRE</a>
         
         <?php endif?>
 

@@ -15,9 +15,9 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
   <thead>
     <tr>
      
-      <th scope="col">date debut</th>
-      <th scope="col">durée</th>
-      <th scope="col">montant</th>
+      <th scope="col">DATE DEBUT</th>
+      <th scope="col">DUREE</th>
+      <th scope="col">MONTANT</th>
     </tr>
   </thead>
   <tbody>
@@ -26,13 +26,13 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
     <?php
 
 	$id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
-	$contrats=find_contrat_proprietaire($id_utilisateur);
+	$contrats=find_contrat_gestionnaire();
 
-     foreach ($contrats as $contrat) :?> 
+     foreach ($contrat_gestionnaires as $contrat_gestionnaire) :?> 
           <tr>
-              <td><?php echo $contrat['date_debut']?></td>
-              <td><?php echo $contrat['dure']?></td>
-              <td><?php echo $contrat['montant_contrat']?></td>
+              <td><?php echo $contrat_gestionnaire['date_debut']?></td>
+              <td><?php echo $contrat_gestionnaire['dure']?></td>
+              <td><?php echo $contrat_gestionnaire['etat_contrat']?></td>
           </tr>
       <?php endforeach ?>
 

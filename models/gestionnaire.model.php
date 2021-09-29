@@ -14,12 +14,14 @@ function find_logement_disponible():array{
 function insert_logement(array $logement):int{
 	$pdo= ouvrir_connection_bd();
 	extract($logement);
+
 	$sql="INSERT INTO `logement` (`reference`, `adressse`, `surface`, `etat_logement`, `id_type_logement`, 
 	`id_zone`, `id_utilisateur`) VALUES (?, ?, ?, ?,
 	?, ?, ?)";
+	 
 	 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-
-      $sth->execute(array(rand(),$adresse,$surface,'disponible',$type_logement,$zone,$proprietaire));
+    $sth->execute($logement) ;
+    
       $ajouter = $pdo->lastInsertId();
       fermer_connection_bd($pdo);//fermeture
       return $ajouter ;
@@ -90,15 +92,17 @@ function select_type_logement():array{
 	fermer_connection_bd($pdo);
 	return $logement;
 }
-		function find_contrat_gestionnaire(string $etat_contrat):array{
+		function find_contrat_gestionnaire():array{
+			
 			$pdo=ouvrir_connection_bd();
 			$sql="select * from contrat_proprietaire cp
 			 where cp.etat_contrat= ?";
+			 
 				 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-				 $sth->execute(array($etat_contrat));
+				 $sth->execute(array('louer'));
 				 $contrat_gestionnaires = $sth->fetchAll();
 				 fermer_connection_bd($pdo);	
 				 return  $contrat_gestionnaires;	
-					 
-		}	 		
+		}	
+			
 ?>

@@ -2,30 +2,40 @@
 if ($_SERVER['REQUEST_METHOD']=='GET') {
 	if (isset($_GET['views'])) {
 	       if ($_GET['views']=='ajoute.logement') {
-		show_ajout_logement(); 
+		inserer_logement($_POST); 
 		} if ($_GET['views']=='contrat.gestionnaire'){
-			require(ROUTE_DIR.'views/gestionnaire/contrat.gestionnaire.html.php');
+			contrat_gestionnaire();			
+			}if ($_GET['views']=='signer.contrat'){
+			require(ROUTE_DIR.'views/gestionnaire/signer.contrat.html.php');	   exit;
+		
+				}
+
 		}
-}
 }elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	if (isset ($_POST['action'])){
 	if ($_POST['action']=='ajoute.logement') {
-		show_ajout_logement($_POST);
-		}	
-		
+		inserer_logement($post);
+		}		
 	}
 }
-function inserer_logement(array $logement):void {
-	$arrayError=array();
-        extract($logement);
-	validation($adresse,'adresse',$arrayError);
-	validation($surface,'surface',$arrayError);
-	validation_password($zone,'zone',$arrayError); 
+function inserer_logement(array $post):void {
+
+        extract($_POST);
+	$logement=[
+	rand(),
+	$adresse,
+	$surface,
+	$etat_logement,
+	$type_logement,
+	$zone,
+	$proprietaire
+	];
+	$id_logement=insert_logement($logement);
 	
  if (form_valid($arrayError)) {
 	
 		
-	insert_logement($logement);
+	
 	
 	    if(count($arrayError) == 0) {
 		$arrayError['erreur']='login ou password incorrect';
@@ -49,8 +59,7 @@ function show_ajout_logement(){
 
 function contrat_gestionnaire(){
 $id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
-$contrat_gestionnaires=find_contrat_gestionnaire($etat_contrat);
+$contrat_gestionnaires=find_contrat_gestionnaire();
 require(ROUTE_DIR.'views/gestionnaire/contrat.gestionnaire.html.php');
 }
-
 ?>

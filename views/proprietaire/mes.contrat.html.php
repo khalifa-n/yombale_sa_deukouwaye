@@ -15,9 +15,9 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
   <thead>
     <tr>
      
-      <th scope="col">date debut</th>
-      <th scope="col">durée</th>
-      <th scope="col">montant</th>
+      <th scope="col">DATE DEBUT</th>
+      <th scope="col">DUREE</th>
+      <th scope="col">MONTANT</th>
     </tr>
   </thead>
   <tbody>
