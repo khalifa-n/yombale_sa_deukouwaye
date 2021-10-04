@@ -34,7 +34,6 @@ data-toggle="dropdown">Choisissez <span class="caret"></span></button>
         
             <div class="card-body">
               <p class="text_warning"><?= $logement['type_logement'] .' '.'à'.' '.$logement['adressse']?></p>
-	      <p class="text_warning">130.000.000 fcafa</p>
               <hr />
               <span class="float-left btn btn-sm text-center disabled"
                 ></span

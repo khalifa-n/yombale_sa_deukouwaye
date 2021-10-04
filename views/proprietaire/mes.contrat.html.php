@@ -8,9 +8,11 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
   <div class="col-sm-10 ml-auto mr-auto mt-5">
     <div class="card">
       <div class="card-body">
-      
+      <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto" enctype="multipart/form-data">
+              <input type="hidden" name="controlleurs" value="proprietaire">  
+		         <input type="hidden" name="action" value="annuler_contrat">  
      
-        <p class="card-text  ">Text</p>
+        <p class="card-text  ">MES CONTRATS</p>
         <table class="table">
   <thead>
     <tr>
@@ -31,8 +33,9 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
      foreach ($contrats as $contrat) :?> 
           <tr>
               <td><?php echo $contrat['date_debut']?></td>
-              <td><?php echo $contrat['dure']?></td>
-              <td><?php echo $contrat['montant_contrat']?></td>
+              <td><?php echo $contrat['dure']?> mois</td>
+              <td><?php echo $contrat['montant_contrat']?> fcfa</td>
+              <td><input name="annuler" type="submit" id="annuler" value="annuler_contrat" /></td>
           </tr>
       <?php endforeach ?>
 

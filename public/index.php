@@ -8,5 +8,4 @@ echo("<pre>");
 var_dump($data);
 echo("<pre>"); */
 require_once(ROUTE_DIR .'lib/router.php');
-
 ?>

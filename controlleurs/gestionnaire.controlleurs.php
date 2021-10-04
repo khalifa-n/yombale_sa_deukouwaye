@@ -5,17 +5,20 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 			show_ajout_logement();
 		}elseif ($_GET['views']=='contrat.gestionnaire'){
 			contrat_gestionnaire();			
-		}if ($_GET['views']=='signer.contrat'){
+		}elseif ($_GET['views']=='signer.contrat'){
 			require(ROUTE_DIR.'views/gestionnaire/signer.contrat.html.php');
-		
-
-	}
-}	
+	}elseif ($_GET['views']=='par.proprietaire'){
+		contrat_par_proprietaire();
+}
+	}	
 }elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	if (isset ($_POST['action'])){
 		if ($_POST['action']=='ajoute.logement') {
 			
 			inserer_logement($_POST);
+		}elseif ($_POST['action']=='filtre_contrat') {
+			contrat_par_proprietaire($_POST);
+	
 		}		
 	}
 }
@@ -71,7 +74,14 @@ $id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
 $contrat_gestionnaires=find_contrat_gestionnaire();
 require(ROUTE_DIR.'views/gestionnaire/contrat.gestionnaire.html.php');
 }
-function contrat_par_gestionnaire(){
-
+function contrat_par_proprietaire(array $data=null){
+	$id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
+	if (is_null($data) ) {
+	$proprios=find_contrat_gestionnaire_par_proprietaire();
+	}else {
+		extract($data);
+		$proprios=filtre_contrat_by_etat_by_prprietaire($etat,$nom,$prenom);
+	}
+require(ROUTE_DIR.'views/gestionnaire/par.proprietaire.html.php');
 }
 ?>

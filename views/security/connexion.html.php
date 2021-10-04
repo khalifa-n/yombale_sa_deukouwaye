@@ -27,7 +27,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
                     </div>
                     <div class="form-group  mr-5 ml-5">
                           <label for="exampleInputPassword1">Password</label>
-                          <input type="text" style="background-color:#D3D0C9" name="password" class="form-control" 
+                          <input type="password" style="background-color:#D3D0C9" name="password" class="form-control" 
                           id="exampleInputPassword1" placeholder="Password">
                               <small  class="form-text text-danger">
                                   <?php echo isset($arrayError['password']) ? $arrayError['password'] : " "  ?>

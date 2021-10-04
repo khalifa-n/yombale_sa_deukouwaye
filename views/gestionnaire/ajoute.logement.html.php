@@ -64,30 +64,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 	 </small>
     </div>
   </div>
-  <div class="form-row">
-    <div class="form-group mr-auto ml-auto col-md-5">
-      <label for="inputEmail4">type de logement</label>
-      <select class="form-select border-light rounded  col-md-12 h-75" style="background-color:#D3D0C9 " name='type_logement[]' placeholder="type_logement "
-      id="floatingSelectGrid"  aria-label="Floating label select example" >
-        <option  selected>choisir le type de logement</option>  
-        <?php foreach($logements as $logement):  ?> 
-          <option value="<?= $logement['id_type_logement']?>"><?= $logement['type_logement']?></option>
-          <?php endforeach   ?> 
-
-      </select>
-      
-	 </small>
-    </div>
-    
-    <div class="form-group mr-auto ml-auto col-md-5 ">
-                     <label for="image">image</label>
-                     <input type="file" style="background-color:#D3D0C9" class="form-control-file h-75" id="fichier"
-                     name="image" >
-                     <small id="imagelHelp"  class="form-text text-danger">
-                      <?php //echo  $arrayError['image']?> 
-
-       </div>  
-    </div> 
+  
       	
   <div class="form-row">
     <div class="form-group mr-auto ml-auto col-md-5">
@@ -116,17 +93,36 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
           <?php echo isset($arrayError['surface']) ? $arrayError['surface'] : " "  ?>
       </small>
     </div>
-    
-   
- 
+    <div class="form-group mr-auto ml-auto col-md-5">
+      <label for="inputEmail4">type de logement</label>
+      <select class="form-select border-light rounded  col-md-12 h-75" style="background-color:#D3D0C9 " name='type_logement[]' placeholder="type_logement "
+      id="floatingSelectGrid"  aria-label="Floating label select example" >
+        <option  selected>choisir le type de logement</option>  
+        <?php foreach($logements as $logement):  ?> 
+          <option value="<?= $logement['id_type_logement']?>"><?= $logement['type_logement']?></option>
+          <?php endforeach   ?> 
 
+      </select>
+      
+	 </small>
+   <div class="col-md-4 ">
+                        <button class="btn btn-info mb-3 " type="submit" name="nbre"> OK</button>
+                    </div>
+    </div>
+        </div> 
+        <div class="form-row">
+    <div class="form-group mr-auto ml-auto col-md-5 ">
+                     <label for="image">image</label>
+                     <input type="file" style="background-color:#D3D0C9" class="form-control-file h-75" id="fichier"
+                     name="image" >
+                     <small id="imagelHelp"  class="form-text text-danger">
+                      <?php //echo  $arrayError['image']?> 
+       </div>  
+
+    </div> 
   <div>
-    
- 
-
   <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn ajouter mt-3 mb-5  ">ajouter</button>
         </div>
-  </div>
               </form>  
               </div>              
             </div>

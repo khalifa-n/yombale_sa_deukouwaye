@@ -17,6 +17,7 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=contrat.gestionnaire'?>">EN COURS</a>
         <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=signer.contrat'?>">SIGNER CONTRAT</a>
+        <a class="dropdown-item" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=par.proprietaire'?>"> PROPRIETAIRE</a>
     </li>
       <li class="nav-item active ">
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement'?>">SIGNER CONTRAT<span class="sr-only">(current)</span></a>
@@ -36,7 +37,7 @@
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat'?>">MES CONTRATS<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active ">
-      <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=gestionnaire&views=catalogue'?>">MES PAIEMENTS<span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=proprietaire&views=mes.paiements'?>">MES PAIEMENTS<span class="sr-only">(current)</span></a>
     </li>
     <?php endif?> 
     <?php if (est_responsable_financier())  :?>

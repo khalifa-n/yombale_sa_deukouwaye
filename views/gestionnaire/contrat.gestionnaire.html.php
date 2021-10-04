@@ -10,7 +10,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
       <div class="card-body">
       
      
-        <p class="card-text  ">Text</p>
+        <p class="card-text  ">MES CONTRATS</p>
         <table class="table">
   <thead>
     <tr>

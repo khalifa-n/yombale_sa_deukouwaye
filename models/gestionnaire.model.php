@@ -31,8 +31,8 @@ function insert_contrat_gestion(array $contrat_gestion):int{
 	 (?, ?, ?, ?, ?, ?)";
 	 
 	 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    var_dump( $sth->execute($contrat_gestion));
-    die();
+     $sth->execute($contrat_gestion);
+    
     
       $ajouter = $pdo->lastInsertId();
       fermer_connection_bd($pdo);//fermeture
@@ -111,7 +111,7 @@ function select_type_logement():array{
 			 where cp.etat_contrat= ?";
 			 
 				 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-				 $sth->execute(array('louer'));
+				 $sth->execute(array('en cours'));
 				 $contrat_gestionnaires = $sth->fetchAll();
 				 fermer_connection_bd($pdo);	
 				 return  $contrat_gestionnaires;	
@@ -130,5 +130,53 @@ function find_contrat_gestionnaire_en_cours():int{
 	  fermer_connection_bd($pdo);	
 	  return  $contrat_gestionnaires;	
 }
-
+function find_contrat_gestionnaire_par_proprietaire():array{
+	$pdo=ouvrir_connection_bd();
+	$sql="select distinct prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
+	from contrat_proprietaire cp,utilisateur u 
+	where cp.id_utilisateur=u.id_utilisateur 
+	group by prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
+	";
+	  $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	  $sth->execute(array());
+	  $proprios = $sth->fetchAll();
+	  fermer_connection_bd($pdo);	
+	  return  $proprios;	
+}
+function filtre_contrat_by_etat_by_prprietaire(string $etat,string $nom,string $prenom):array{
+	$pdo=ouvrir_connection_bd();
+	$sql="select distinct prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
+	from contrat_proprietaire cp,utilisateur u 
+	where cp.id_utilisateur=u.id_utilisateur 
+	and etat_contrat = ? and nom=? and prenom=?
+	group by prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
+	";
+	  $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	  $sth->execute(array($etat,$nom,$prenom));
+	  $proprios = $sth->fetchAll();
+	  fermer_connection_bd($pdo);	
+	  return  $proprios;		
+}
+function find_proprietaire():array{
+	$pdo=ouvrir_connection_bd();
+	$sql="select * from utilisateur u,role r 
+	where u.id_role=r.id_role and nom_role = ?
+	";
+	$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	var_dump($sth->execute(array('proprietaire')));
+	$un_proprietaires = $sth->fetchAll();
+	fermer_connection_bd($pdo);	
+	return $un_proprietaires  ;
+} 
+function find_cumul_montant():array{
+	$pdo=ouvrir_connection_bd();
+	$sql="select SUM(montant_contrat) from utilisateur u,role r,contrat_proprietaire cp
+	 where u.id_role=r.id_role and nom_role='proprietaire'and etat_contrat='en cours'
+	";
+	  $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	  $sth->execute(array());
+	  $proprios = $sth->fetchAll();
+	  fermer_connection_bd($pdo);	
+	  return  $proprios;	
+}
 ?>

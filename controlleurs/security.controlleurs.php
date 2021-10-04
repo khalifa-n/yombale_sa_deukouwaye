@@ -89,20 +89,20 @@ function inscription(array $data, array $files):void{
                   if(!upload_image($_FILES, $target_file)) {
                       $arrayError['avatar'] = "Erreur lors de l'upload de l'image";
                       $_SESSION['arrayError']=$arrayError;
-                      header('location:'.WEB_ROUTE.'?controlleurs=security&view=inscription');
+                      header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');
                       exit();
                 }
               }
-	      header('location:'.WEB_ROUTE.'?controlleurs=security&view=connexio');	}else {
+	      header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexio');	}else {
 		$_SESSION['arrayError']=$arrayError;
-		header('location:'.WEB_ROUTE.'?controlleurs=security&view=inscription');		exit;
+		header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');		exit;
 	    }
 	}
 	
 	
 	function deconexion ():void{
 	unset($_SESSION['userConnect']);
-	header('location:'.WEB_ROUTE.'?controlleurs=security&view=connexion');	}
+	header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	}
 
 
 	
