@@ -33,7 +33,7 @@ function insert_contrat_gestion(array $contrat_gestion):int{
 	 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
      $sth->execute($contrat_gestion);
     
-    
+   
       $ajouter = $pdo->lastInsertId();
       fermer_connection_bd($pdo);//fermeture
       return $ajouter ;
@@ -108,7 +108,8 @@ function select_type_logement():array{
 			
 			$pdo=ouvrir_connection_bd();
 			$sql="select * from contrat_proprietaire cp
-			 where cp.etat_contrat= ?";
+			 where cp.etat_contrat= ? 
+			 ";
 			 
 				 $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 				 $sth->execute(array('en cours'));
@@ -132,10 +133,9 @@ function find_contrat_gestionnaire_en_cours():int{
 }
 function find_contrat_gestionnaire_par_proprietaire():array{
 	$pdo=ouvrir_connection_bd();
-	$sql="select distinct prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
-	from contrat_proprietaire cp,utilisateur u 
-	where cp.id_utilisateur=u.id_utilisateur 
-	group by prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
+	$sql="select * from contrat_proprietaire cp,utilisateur u
+	 where cp.id_utilisateur=u.id_utilisateur
+
 	";
 	  $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 	  $sth->execute(array());
@@ -145,6 +145,7 @@ function find_contrat_gestionnaire_par_proprietaire():array{
 }
 function filtre_contrat_by_etat_by_prprietaire(string $etat,string $nom,string $prenom):array{
 	$pdo=ouvrir_connection_bd();
+	
 	$sql="select distinct prenom,nom,date_debut,montant_contrat,dure,etat_contrat 
 	from contrat_proprietaire cp,utilisateur u 
 	where cp.id_utilisateur=u.id_utilisateur 
@@ -155,8 +156,10 @@ function filtre_contrat_by_etat_by_prprietaire(string $etat,string $nom,string $
 	  $sth->execute(array($etat,$nom,$prenom));
 	  $proprios = $sth->fetchAll();
 	  fermer_connection_bd($pdo);	
-	  return  $proprios;		
+	  return  $proprios;	
+		
 }
+
 function find_proprietaire():array{
 	$pdo=ouvrir_connection_bd();
 	$sql="select * from utilisateur u,role r 

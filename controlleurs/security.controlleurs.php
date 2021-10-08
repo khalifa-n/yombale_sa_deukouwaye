@@ -1,5 +1,4 @@
 <?php
-  ob_start();
 if ($_SERVER['REQUEST_METHOD']=='GET') {
 	if (isset($_GET['views'])) {
 	       if ($_GET['views']=='connexion') {
@@ -50,17 +49,16 @@ function connexion_utilisateur(string $login, string $password):void{
 			}elseif (est_proprietaire()) {
 				header('location:'.WEB_ROUTE.'?controlleurs=proprietaire&views=mes.contrat');		
 			}elseif (est_client()) {
-				header('location:'.WEB_ROUTE.'?controlleurs=client&views=client');			
+				header('location:'.WEB_ROUTE.'?controlleurs=client&views=mes.contrats');			
 			}elseif (est_responsable_location()) {
-				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
+				header('location:'.WEB_ROUTE.'?controlleurs=responsable_location&views=responsable_location');			
 			}elseif (est_responsable_financier()) {
-				require(ROUTE_DIR.'views/catalogue/catalogue.html.php');
-	
+				header('location:'.WEB_ROUTE.'?responsable_financier=client&views=responsable_financier');				
 			}
 		}
 	}else {
 		$_SESSION['arrayError']=$arrayError;
-		
+	
  	header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	
 		exit();
 	}
@@ -93,7 +91,7 @@ function inscription(array $data, array $files):void{
                       exit();
                 }
               }
-	      header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexio');	}else {
+	      header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	}else {
 		$_SESSION['arrayError']=$arrayError;
 		header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');		exit;
 	    }

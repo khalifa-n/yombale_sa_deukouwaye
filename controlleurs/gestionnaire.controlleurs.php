@@ -78,6 +78,7 @@ function contrat_par_proprietaire(array $data=null){
 	$id_utilisateur=$_SESSION['userConnect']['id_utilisateur'];
 	if (is_null($data) ) {
 	$proprios=find_contrat_gestionnaire_par_proprietaire();
+	
 	}else {
 		extract($data);
 		$proprios=filtre_contrat_by_etat_by_prprietaire($etat,$nom,$prenom);

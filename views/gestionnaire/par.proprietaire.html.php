@@ -14,7 +14,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 	
       <div class="form-group mr-auto ml-auto col-md-3">
       <label for="inputEmail4">etat</label>
-      <select class="form-select text-light border-light rounded  col-md-12 h-75" style="background-color:blue " name='etat' placeholder=""
+      <select class="form-select  border-light rounded  col-md-12 h-75" style="background-color:blue " name='etat' placeholder=""
       id="floatingSelectGrid"  aria-label="Floating label select example" >
       <option  selected>choisir l'etat</option>
         <option  value="en cours">en cours</option>
@@ -24,11 +24,11 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
     </div>
     <div class="form-group mr-auto ml-auto col-md-3">
       <label for="inputEmail4">nom</label>
-      <select class="form-select border-light rounded  col-md-12 h-75" style="background-color:#D3D0C9 " name='nom' placeholder=""
+      <select class="form-select border-light rounded  col-md-12 h-75" style="background-color:white " name='nom' placeholder=""
       id="floatingSelectGrid"  aria-label="Floating label select example" >
       <option  selected>choisir le proprietaire</option>
         <?php foreach($proprios  as $proprio ):?>
-        <option value="<?= $proprio ['nom']?>"> </option>
+        <option value="<?= $proprio['nom']?>"><?= $proprio['nom']?> </option>
         <?php endforeach ?>
       </select> 
 	 </small>
@@ -40,7 +40,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
       id="floatingSelectGrid"  aria-label="Floating label select example" >
       <option  selected>choisir le proprietaire</option>
         <?php foreach($proprios as $proprio ):?>
-        <option value="<?= $proprio ['prennom']?>"> </option>
+        <option value="<?= $proprio['prenom']?>"> <?= $proprio['prenom']?></option>
         <?php endforeach ?>
       </select> 
 	 </small>

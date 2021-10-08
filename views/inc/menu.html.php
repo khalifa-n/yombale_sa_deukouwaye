@@ -28,6 +28,9 @@
     <?php if (est_client())  :?>
       <li class="nav-item active ">
       <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=client&views=client'?>">MES DEMANDES<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active ">
+    <a class="nav-link" href="<?= WEB_ROUTE.'?controlleurs=client&views=mes.contrats'?>">MES CONTRATS<span class="sr-only">(current)</span></a>
     </li> 
 </div>
     </li>
