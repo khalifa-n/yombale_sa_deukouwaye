@@ -1,20 +1,25 @@
 <?php
 if ($_SERVER['REQUEST_METHOD']=='GET') {
-	if (isset($_GET['views'])) {
-	        if ($_GET['views']=='ajoute.logement') {
-			show_ajout_logement();
-		}elseif ($_GET['views']=='contrat.gestionnaire'){
-			contrat_gestionnaire();			
-		}elseif ($_GET['views']=='signer.contrat'){
-			require(ROUTE_DIR.'views/gestionnaire/signer.contrat.html.php');
-	}elseif ($_GET['views']=='par.proprietaire'){
-		contrat_par_proprietaire();
-}
+	if (est_gestionnaire()) {
+		if (isset($_GET['views'])) {
+			if ($_GET['views']=='ajoute.logement') {
+				show_ajout_logement();
+			}elseif ($_GET['views']=='contrat.gestionnaire'){
+				contrat_gestionnaire();			
+			}elseif ($_GET['views']=='signer.contrat'){
+				require(ROUTE_DIR.'views/gestionnaire/signer.contrat.html.php');
+		}elseif ($_GET['views']=='par.proprietaire'){
+			contrat_par_proprietaire();
+			}
+		}
+	}else {
+		header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');
+		exit;
 	}	
-}elseif ($_SERVER['REQUEST_METHOD']=='POST') {
+}
+elseif ($_SERVER['REQUEST_METHOD']=='POST') {
 	if (isset ($_POST['action'])){
 		if ($_POST['action']=='ajoute.logement') {
-			
 			inserer_logement($_POST);
 		}elseif ($_POST['action']=='filtre_contrat') {
 			contrat_par_proprietaire($_POST);
@@ -24,10 +29,17 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 }
 function inserer_logement(array $post):void {
 	$arrayError=array();
+	extract($post);
+	validation($adresse,'adresse',$arrayError);
+	validation($duree,'duree',$arrayError);
+	validation($surface,'surface',$arrayError);
+	validation($montant_contrat,'montant_contrat',$arrayError);
+	validation_selected($proprietaire,'proprietaire',$arrayError);
+	validation_selected($zone,'zone',$arrayError);
+	validation_selected($type_logement,'type_logement',$arrayError);
 
 	if (form_valid($arrayError)) {
-
-        extract($post);
+        
 	$logement=[
 	rand(),
 	$adresse,
@@ -46,17 +58,14 @@ function inserer_logement(array $post):void {
 	$montant_contrat,
 	(int)$proprietaire,
 	$id_logement,
-
 	];
-	
-
 	insert_contrat_gestion($contrat_gestion);
 	//(`date_debut`, `dure`,
 	//`etat_contrat`, `montant_contrat`, `id_utilisateur`, `id_logement`
 		//require(ROUTE_DIR.'views/visiteur/visiteur.html.php');	   exit;
 	}else {
 		$_SESSION['arrayError']=$arrayError;
-		require(ROUTE_DIR.'views/gestionnaire/ajoute.logement.html.php');
+		header('location:'.WEB_ROUTE.'?controlleurs=gestionnaire&views=ajoute.logement');		
 		exit;
 	}
 }
@@ -85,4 +94,3 @@ function contrat_par_proprietaire(array $data=null){
 	}
 require(ROUTE_DIR.'views/gestionnaire/par.proprietaire.html.php');
 }
-?>

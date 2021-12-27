@@ -28,4 +28,3 @@ function valide_image(array $files, array &$arrayError, string $key, $target_fil
     function upload_images($files, $target_file): bool {
 	return move_uploaded_file($files["image"]["tmp_name"], $target_file);
     }
-?>

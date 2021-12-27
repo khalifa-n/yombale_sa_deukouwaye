@@ -16,4 +16,5 @@ function destroy_session()
 function est_connect():bool{
 	return isset($_SESSION['userConnect']);
 }
-?>
+
+

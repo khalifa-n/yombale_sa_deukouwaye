@@ -15,7 +15,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color:#D3D0C9">
-  @2020 | Yombale sa deukouwaye | All Rights Reserved !!   
+  @2021 | Yombale sa deukouwaye | All Rights Reserved !!   
   </div>
   <!-- Copyright -->
 </footer>

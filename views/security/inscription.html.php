@@ -103,7 +103,7 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
 
                  </div> 
   
-  <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn mr-5 ml-auto mt-3 mb-5  ">inscription</button>
+  <button type="submit" style="background-color:#7D5939;color:#FFF" class="btn ml-5 mt-3 mb-5">Inscription</button>
 
 
               </form>  

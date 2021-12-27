@@ -7,40 +7,36 @@ require(ROUTE_DIR.'views/inc/header.html.php');
 require(ROUTE_DIR.'views/inc/menu.html.php');
 ?>
   <div class="container-fluid" >
-	
     <div class="row">
-            <div class="card-body mt-5 col-md-5 mb-5  ml-auto mr-auto"style="background-color:#7D5939 " >
-              <div class="container_form"style="background-color:white">
-                
-             
-            <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
-              <input type="hidden" name="controlleurs" value="security">  
-		          <input type="hidden" name="action" value="connexion">  
-                <p class=" connexion"> </p>
-                    <div class="form-group mt-5 mr-5 ml-5"  >
-                          <label for="exampleInputEmail1">Email address</label>
+        <div class="card-body mt-5 col-md-5 mb-5  ml-auto mr-auto"style="background-color:#7D5939" >
+            <div class="container_form"style="background-color:white">
+              <form  method="POST" action="<?= WEB_ROUTE ?>" class="m-auto">
+                <input type="hidden" name="controlleurs" value="security">  
+                <input type="hidden" name="action" value="connexion">  
+                  <p class="connexion"> </p>
+                   <div class="form-group  mr-5 ml-5"  >
+                       <label for="exampleInputEmail1">Email address</label>
                           <input type="text"style="background-color:#D3D0C9" name="login" class="form-control" 
-                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                              <small  class="form-text text-danger">
-                                  <?php echo isset($arrayError['login']) ? $arrayError['login'] : " "  ?>
-                              </small>
-                    </div>
+                          id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small  class="form-text text-danger">
+                             <?php echo isset($arrayError['login']) ? $arrayError['login'] : " "  ?>
+                            </small>
+                   </div>
                     <div class="form-group  mr-5 ml-5">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" style="background-color:#D3D0C9" name="password" class="form-control" 
-                          id="exampleInputPassword1" placeholder="Password">
-                              <small  class="form-text text-danger">
-                                  <?php echo isset($arrayError['password']) ? $arrayError['password'] : " "  ?>
-                              </small>
+                       <label for="exampleInputPassword1">Password</label>
+                         <input type="password" style="background-color:#D3D0C9" name="password" class="form-control" 
+                         id="exampleInputPassword1" placeholder="Password">
+                           <small  class="form-text text-danger">
+                            <?php echo isset($arrayError['password']) ? $arrayError['password'] : " "  ?>
+                           </small>
                     </div>
-                    <button type="submit" style="background-color:#7D5939" class="btn mr-5 mt-3 mb-5 ml-5 ">connexion</button>
-                        <a href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>>"><button style="background-color:#7D5939" class="btn mt-5 ml-5  ">creer un compte</button></a>
-                    </div>     
-    
-           </form>  
-              </div>              
-            </div>
-      
+                          <button type="submit" style="background-color:#7D5939" class="btn mr-5 mt-3 mb-5 ml-5 ">connexion</button>
+                            <a href="<?= WEB_ROUTE.'?controlleurs=security&views=inscription'?>>"><button style="background-color:#7D5939" class="btn mt-5 ml-5  ">creer un compte</button></a>
+                </form>  
+            </div>     
+             
+     </div>              
+    </div> 
   </div> 
   </div>  
 <?php

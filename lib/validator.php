@@ -51,6 +51,9 @@ function validation(string $valeur, string  $key, array &$arrayError){
     }
 }
 
+function validation_selected(string $valeur,string $key,array &$arrayError ){ 
+    if ($valeur=='0') {
+        $arrayError[$key] = "ce champ est obligatoire";
+    }
+}
 
-
-?>

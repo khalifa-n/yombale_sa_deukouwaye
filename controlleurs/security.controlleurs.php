@@ -93,7 +93,8 @@ function inscription(array $data, array $files):void{
               }
 	      header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	}else {
 		$_SESSION['arrayError']=$arrayError;
-		header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');		exit;
+		header('location:'.WEB_ROUTE.'?controlleurs=security&views=inscription');		
+		exit;
 	    }
 	}
 	
@@ -101,7 +102,7 @@ function inscription(array $data, array $files):void{
 	function deconexion ():void{
 	unset($_SESSION['userConnect']);
 	header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');	}
-
-
-	
-?>
+if (! isset($_SESSION['userConnect'])) {
+			header('location:'.WEB_ROUTE.'?controlleurs=security&views=connexion');
+			exit;	
+		}	

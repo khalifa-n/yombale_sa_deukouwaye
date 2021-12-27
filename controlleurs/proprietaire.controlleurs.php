@@ -29,4 +29,3 @@ function annuler_un_contrat(){
 update_contrat_proprietaire('$id_contrat');
 require(ROUTE_DIR.'views/proprietaire/mes.contrat.html.php');
 }
-?>

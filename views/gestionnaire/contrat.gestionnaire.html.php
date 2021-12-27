@@ -14,7 +14,6 @@ require(ROUTE_DIR.'views/inc/menu.html.php');
         <table class="table">
   <thead>
     <tr>
-     
       <th scope="col">DATE DEBUT</th>
       <th scope="col">DUREE</th>
       <th scope="col">MONTANT</th>

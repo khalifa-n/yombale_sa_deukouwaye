@@ -37,8 +37,7 @@ function insert_reservation(array $data):int{
 	$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 	$sth->execute($data);
 	$nbre_ligne_insert = $sth->rowCount();
-	fermer_connection_bd($pdo);//fermeture
+	fermer_connection_bd($pdo);
 	return $nbre_ligne_insert;
 }
-
-    ?>
+    

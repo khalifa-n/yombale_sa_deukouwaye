@@ -17,8 +17,5 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 		 $demandes=[
 			date('d-m-y h:i:s'),
 			'en cours',
-			
-
 		 ];
 	   }
-?>

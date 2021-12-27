@@ -17,6 +17,3 @@ if (isset($_REQUEST['controlleurs'])) {
 }else {
     require_once(ROUTE_DIR .'controlleurs/visiteur.controlleurs.php');
 }
-
-
-?>
